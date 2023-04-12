@@ -13,6 +13,10 @@
     {
       "name": "Игровые персонажи",
       "description": "За данных персонажей игрок может играть"
+    },
+    {
+      "name": "Способности персонажей",
+      "description": "Этими способностями будут пользоваться персонажи"
     }
   ],
   "paths": {
@@ -45,6 +49,30 @@
           }
         }
       }
+    },
+    "/the_stone_sword/api/v1.0/skills": {
+      "post": {
+        "tags": [
+          "Способности персонажей"
+        ],
+        "summary": "Добавить способность к конкретному игровому персонажу",
+        "requestBody": {
+          "description": "Параметры способности",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/skills_for_game_person"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Способность добавлена в базу данных"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -59,6 +87,54 @@
           "story": {
             "type": "string",
             "example": "Жил да был мишаня и был у него кекс и лучи (в таком роде и дохуя можно)..."
+          }
+        }
+      },
+      "skills_for_game_person":{
+        "type": "object",
+        "properties":{
+          "name_s": {
+            "type": "string",
+            "example": "Призыв Кекса и Лучи"
+          },
+          "id_gp": {
+            "type": "integer",
+            "format": "int32",
+            "example": "1"
+          },
+          "description_gp": {
+            "type": "string",
+            "example": "Описание скила, призывает Кекса и Лучи, которые в моменте атакуют всех врагов"
+          },
+          "min_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "10"
+          },
+          "max_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "16"
+          },
+          "chance_crit_interest": {
+            "type": "integer",
+            "format": "int32",
+            "example": "50"
+          },
+          "min_crit_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "18"
+          },
+          "max_crit_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "25"
+          },
+          "miss_chance": {
+            "type": "integer",
+            "format": "int32",
+            "example": "5"
           }
         }
       }
