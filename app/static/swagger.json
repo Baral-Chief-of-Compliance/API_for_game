@@ -1,0 +1,67 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "description": "Это API для добавления персонажей и контента для игры",
+    "version": "1.0.0",
+    "title": "The_Stone_Sword_API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Игровые персонажи",
+      "description": "За данных персонажей игрок может играть"
+    }
+  ],
+  "paths": {
+    "/the_stone_sword/api/v1.0/game_persons": {
+      "get": {
+        "tags": [
+          "Игровые персонажи"
+        ],
+          "summary": "Возвращает список всех игровых персонажей"
+      },
+      "post": {
+        "tags": [
+          "Игровые персонажи"
+        ],
+        "summary": "Добавить игрового персонажа",
+        "requestBody": {
+          "description": "Параметры игрового персонажа",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/game_person"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Персонаж добавлен в базу данных"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "game_person": {
+        "type": "object",
+        "properties": {
+          "name_gp":{
+            "type": "string",
+            "example": "Мишаня"
+          },
+          "story": {
+            "type": "string",
+            "example": "Жил да был мишаня и был у него кекс и лучи (в таком роде и дохуя можно)..."
+          }
+        }
+      }
+    }
+  }
+}
