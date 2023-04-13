@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Blueprint, send_from_directory
+from flask import Flask, jsonify, request, Blueprint, send_from_directory, redirect
 from config import Config
 from flask_mysqldb import MySQL
 from flask_swagger_ui import get_swaggerui_blueprint

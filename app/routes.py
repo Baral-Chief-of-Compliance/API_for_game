@@ -1,4 +1,4 @@
-from app import app, jsonify, request, Blueprint, send_from_directory, get_swaggerui_blueprint
+from app import app, jsonify, request, Blueprint, send_from_directory, get_swaggerui_blueprint, redirect
 from game_person.game_person import game_person
 
 
@@ -8,6 +8,11 @@ def send_static(path):
 
 
 app.register_blueprint(game_person, url_prefix='/the_stone_sword/api/v1.0/')
+
+
+@app.route('/')
+def swagger():
+    return redirect('/swagger')
 
 
 @app.route('/the_stone_sword/api/v1.0/')
