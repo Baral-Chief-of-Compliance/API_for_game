@@ -59,6 +59,17 @@
       }
     },
     "/the_stone_sword/api/v1.0/skills": {
+      "get": {
+        "tags": [
+          "Способности персонажей"
+        ],
+        "summary": "Возвращает список всех способностей игровых персонажей",
+        "responses": {
+          "200": {
+            "description": "Список всех способностей в игре"
+          }
+        }
+      },
       "post": {
         "tags": [
           "Способности персонажей"
@@ -82,6 +93,64 @@
         }
       }
     },
+    "/the_stone_sword/api/v1.0/skills/{id_s}": {
+      "parameters": [
+          {
+            "name":"id_s",
+            "in": "path",
+            "description": "id способности",
+            "required": true,
+            "type": "string"
+          }
+      ],
+      "get": {
+        "tags": [
+          "Способности персонажей"
+        ],
+        "summary": "Получить информацию о конкретной способности по её id",
+        "responses": {
+          "200": {
+            "description": "Характеристики способности"
+          },
+          "500": {
+            "description": "Спосбности под таким id нет"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Способности персонажей"
+        ],
+        "summary": "Удалить способность по её id",
+        "responses": {
+          "200": {
+            "description": "спосбность удалена"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Способности персонажей"
+        ],
+        "summary": "Обновить информацию о способности по его id",
+        "requestBody": {
+          "description": "Параметры способности",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/skills_for_game_person_for_update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "данные обновлены"
+          }
+        }
+      }
+    },
     "/the_stone_sword/api/v1.0/game_persons/{id_gp}": {
       "parameters": [
           {
@@ -100,6 +169,39 @@
         "responses": {
           "200": {
             "description": "Характеристики персонажа и его скилы"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Игровые персонажи"
+        ],
+        "summary": "Удалить конкретного персонажа по его id",
+        "responses": {
+          "200": {
+            "description": "Персонаж удален"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Игровые персонажи"
+        ],
+        "summary": "Обновить информацию о персонаже по его id",
+        "requestBody": {
+          "description": "Параметры игрового персонажа",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/game_person"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "данные обновлены"
           }
         }
       }
@@ -131,6 +233,49 @@
             "type": "integer",
             "format": "int32",
             "example": "1"
+          },
+          "description_gp": {
+            "type": "string",
+            "example": "Описание скила, призывает Кекса и Лучи, которые в моменте атакуют всех врагов"
+          },
+          "min_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "10"
+          },
+          "max_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "16"
+          },
+          "chance_crit_interest": {
+            "type": "integer",
+            "format": "int32",
+            "example": "50"
+          },
+          "min_crit_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "18"
+          },
+          "max_crit_damage": {
+            "type": "integer",
+            "format": "int32",
+            "example": "25"
+          },
+          "miss_chance": {
+            "type": "integer",
+            "format": "int32",
+            "example": "5"
+          }
+        }
+      },
+      "skills_for_game_person_for_update":{
+        "type": "object",
+        "properties":{
+          "name_s": {
+            "type": "string",
+            "example": "Призыв Кекса и Лучи"
           },
           "description_gp": {
             "type": "string",
