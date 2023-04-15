@@ -10,17 +10,17 @@ def all_skills():
     if request.method == "POST":
         name_s = request.json["name_s"]
         id_gp = request.json["id_gp"]
-        description_gp = request.json["description_gp"]
-        min_damage = request.json["min_damage"]
-        max_damage = request.json["max_damage"]
-        chance_crit_interest = request.json["chance_crit_interest"]
-        max_crit_damage = request.json["max_crit_damage"]
-        min_crit_damage = request.json["min_crit_damage"]
-        miss_chance = request.json["miss_chance"]
+        description_s = request.json["description_s"]
+        min_damage_s = request.json["min_damage_s"]
+        max_damage_s = request.json["max_damage_s"]
+        crit_chance_s = request.json["crit_chance_s"]
+        max_crit_damage_s = request.json["max_crit_damage_s"]
+        min_crit_damage_s = request.json["min_crit_damage_s"]
+        miss_chance_s = request.json["miss_chance_s"]
 
-        skills_db.create([name_s, id_gp, description_gp, min_damage,
-                          max_damage, chance_crit_interest, max_crit_damage,
-                          min_crit_damage, miss_chance])
+        skills_db.create([name_s, id_gp, description_s, min_damage_s,
+                          max_damage_s, crit_chance_s, max_crit_damage_s,
+                          min_crit_damage_s, miss_chance_s])
 
         return jsonify(f"skills {name_s} for game_person {id_gp} is add")
 
@@ -79,6 +79,6 @@ def inf_about_skills(id_s):
 
         skills_db.update_skill([name_s, description_s, min_damage_s,
                                 max_damage_s, miss_chance_s, min_crit_damage_s,
-                                max_crit_damage_s, crit_chance_s])
+                                max_crit_damage_s, crit_chance_s, id_s])
 
         return jsonify(f"skill with id {id_s} is update")

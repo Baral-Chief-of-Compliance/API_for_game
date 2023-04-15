@@ -234,36 +234,36 @@
             "format": "int32",
             "example": "1"
           },
-          "description_gp": {
+          "description_s": {
             "type": "string",
             "example": "Описание скила, призывает Кекса и Лучи, которые в моменте атакуют всех врагов"
           },
-          "min_damage": {
+          "min_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "10"
           },
-          "max_damage": {
+          "max_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "16"
           },
-          "chance_crit_interest": {
+          "crit_chance_s": {
             "type": "integer",
             "format": "int32",
             "example": "50"
           },
-          "min_crit_damage": {
+          "min_crit_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "18"
           },
-          "max_crit_damage": {
+          "max_crit_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "25"
           },
-          "miss_chance": {
+          "miss_chance_s": {
             "type": "integer",
             "format": "int32",
             "example": "5"
@@ -277,36 +277,36 @@
             "type": "string",
             "example": "Призыв Кекса и Лучи"
           },
-          "description_gp": {
+          "description_s": {
             "type": "string",
             "example": "Описание скила, призывает Кекса и Лучи, которые в моменте атакуют всех врагов"
           },
-          "min_damage": {
+          "min_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "10"
           },
-          "max_damage": {
+          "max_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "16"
           },
-          "chance_crit_interest": {
+          "crit_chance_s": {
             "type": "integer",
             "format": "int32",
             "example": "50"
           },
-          "min_crit_damage": {
+          "min_crit_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "18"
           },
-          "max_crit_damage": {
+          "max_crit_damage_s": {
             "type": "integer",
             "format": "int32",
             "example": "25"
           },
-          "miss_chance": {
+          "miss_chance_s": {
             "type": "integer",
             "format": "int32",
             "example": "5"
